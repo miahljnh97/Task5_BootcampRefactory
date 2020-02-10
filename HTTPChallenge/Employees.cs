@@ -53,7 +53,7 @@ namespace HTTPChallenge
         public string Birthday { get; set; }
         public List<Address> Addresses { get; set; }
         public List<Phone> Phones { get; set; }
-        public List<string> presence_list { get; set; }
+        public List<string> Presence_list { get; set; }
         public int Salary { get; set; }
         public Department Department { get; set; }
         public Position Position { get; set; }
