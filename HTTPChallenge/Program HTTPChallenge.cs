@@ -15,7 +15,7 @@ namespace HTTPChallenge
             //Console.WriteLine(getJsonResponse);
 
             ////Nomor 2
-            var result = await Employees.employeesData();
+            //var result = await Employees.employeesData();
 
             //Console.WriteLine("Employees that has salary more than 15 Million are : ");
             //List<string> salary = new List<string>();
@@ -60,33 +60,38 @@ namespace HTTPChallenge
             //Console.WriteLine(String.Join(",", born));
             //Console.WriteLine(" ");
 
-            Console.WriteLine("Employees that absences in October 2019 are : ");
-            List<int> Absences = new List<int>();
-            
-            List<string> Nama = new List<string>();
-            foreach (var k in result)
-            {
-                int count = 0;
-                foreach (var l in k.Presence_list)
-                {
-                    var A = Convert.ToInt32(l.Substring(5, 2));
-                    if (A == 10)
-                    {
-                        count++;
-                    }
-                }
-                Absences.Add(count);
+            //Console.WriteLine("Employees that absences in October 2019 are : ");
+            //List<int> Absences = new List<int>();
 
-                Nama.Add(k.First_name + k.Last_name);
+            //List<string> Nama = new List<string>();
+            //foreach (var k in result)
+            //{
+            //    int count = 0;
+            //    foreach (var l in k.Presence_list)
+            //    {
+            //        var A = Convert.ToInt32(l.Substring(5, 2));
+            //        if (A == 10)
+            //        {
+            //            count++;
+            //        }
+            //    }
+            //    Absences.Add(count);
 
-            }
-            Console.WriteLine(String.Join(",", Nama));
-            Console.WriteLine(String.Join(",", Absences));
-            Console.WriteLine(" ");
+            //    Nama.Add(k.First_name + k.Last_name);
+
+            //}
+            //Console.WriteLine(String.Join(",", Nama));
+            //Console.WriteLine(String.Join(",", Absences));
+            //Console.WriteLine(" ");
 
             //Nomor 3
 
             //Nomor 4
+
+            //Nomor 5
+            var scrape = new Kompas.BlogScrapper();
+            await scrape.StartAsync();
+            //scrape.Start();
 
         }
 

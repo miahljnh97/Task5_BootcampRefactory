@@ -52,7 +52,7 @@
 //        //    var posts = JsonConvert.DeserializeObject<List<Post>>(resultPo);
 //        //    return posts;
 //        //}
-        
+
 //    }
 
 //    //public class User
@@ -68,30 +68,31 @@
 //    //    public string Body { get; set; }
 //    //}
 
-//    internal class BlogScrapper : WebScraper
+//internal class BlogScrapper : WebScraper
+//{
+//    public override void Init()
 //    {
-//        public override void Init()
-//        {
-//            LoggingLevel = WebScraper.LogLevel.All;
-//            Request("https://blog.scrapinghub.com", Parse);
-//        }
+//        LoggingLevel = WebScraper.LogLevel.All;
+//        Request("https://blog.scrapinghub.com", Parse);
+//    }
 
-//        //public override void Parse(Response response)
-//        //{
-//        //    foreach(var result in response.Css("div.post-header > h2"))
-//        //    {
-//        //        string title = result.TextContentClean;
-//        //        Console.WriteLine(title);
-//        //    }
-//        //}
+//    //public override void Parse(Response response)
+//    //{
+//    //    foreach(var result in response.Css("div.post-header > h2"))
+//    //    {
+//    //        string title = result.TextContentClean;
+//    //        Console.WriteLine(title);
+//    //    }
+//    //}
 
-//        public override void Parse(Response response)
+
+//    public override void Parse(Response response)
+//    {
+//        foreach (var result in response.Css("span.date"))
 //        {
-//            foreach (var result in response.Css("span.date"))
-//            {
-//                string title = result.Css("a[href]")[0].Attributes["href"];
-//                Console.WriteLine(title);
-//            }
+//            string title = result.Css("a[href]")[0].Attributes["href"];
+//            Console.WriteLine(title);
 //        }
+    }
 //    }
 //}
