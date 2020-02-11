@@ -21,18 +21,11 @@ namespace HTTPChallenge
 
             public override void Parse(Response response)
             {
-                foreach (var result in response.Css("div.headline.ga--headline.clearfix"))
+                foreach (var result in response.Css("a.headline__thumb__link"))
                 {
-                    var t = result.InnerText;
-                    Console.WriteLine(t);
+                    Console.WriteLine(result.InnerText);
+                    Console.WriteLine(result.Attributes["href"]);
                     Console.WriteLine("");
-
-                    for (int i = 0; i < result.Css("a[href]").Length; i++)
-                    {
-                        Console.WriteLine(result.Css("a[href]")[i].Attributes["href"]);
-                        Console.WriteLine("");
-                    }
-
                 }
             }
         }

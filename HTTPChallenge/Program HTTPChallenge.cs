@@ -13,8 +13,8 @@ namespace HTTPChallenge
         static async Task Main(string[] args)
         {
             //Nomor 1
-            //var getJsonResponse = await Fetcher.Post();
-            //Console.WriteLine(getJsonResponse);
+            var getJsonResponse = await Fetcher.Get("https://httpbin.org/get");
+            Console.WriteLine(getJsonResponse);
 
             //Nomor 2
             var result = await Employees.employeesData();
@@ -146,19 +146,61 @@ namespace HTTPChallenge
             Console.WriteLine("");
 
 
-            ////Nomor 4
-            //var scrape = new MovieDB();
-            //await scrape.StartAsync();
-            //Console.WriteLine("Nomor 4 is done.");
-            //Console.WriteLine("")
-            ////scrape.Start();
+            //Nomor 4
+            Console.WriteLine("Indonesian movies : ");
+            var Indo = await Soal4.Indonesia();
+            List<string> Indomovie = new List<string>();
+            foreach (var k in Indo.results)
+            {
+                Indomovie.Add(k.original_title);
+
+            }
+            Console.WriteLine(String.Join("\n", Indomovie));
+            Console.WriteLine(" ");
+
+            Console.WriteLine("Keanu Reeve's movies : ");
+            var KR = await Soal4.Keanu();
+            List<string> KeanuMovie = new List<string>();
+            foreach (var k in KR.results)
+            {
+                KeanuMovie.Add(k.original_title);
+
+            }
+            Console.WriteLine(String.Join("\n", KeanuMovie));
+            Console.WriteLine(" ");
+
+            Console.WriteLine("Robert Downey Jr. & Tom Holland's movies : ");
+            var DH = await Soal4.DowneyHolland();
+            List<string> DowneyHollandMovie = new List<string>();
+            foreach (var k in DH.results)
+            {
+                DowneyHollandMovie.Add(k.original_title);
+
+            }
+            Console.WriteLine(String.Join("\n", DowneyHollandMovie));
+            Console.WriteLine(" ");
+
+            Console.WriteLine("Popular movies list that released on 2016 and the votes above 7.5: ");
+            var PM = await Soal4.popularMovies();
+            List<string> popMovies = new List<string>();
+            foreach (var k in PM.results)
+            {
+                popMovies.Add(k.original_title);
+
+            }
+            Console.WriteLine(String.Join("\n", popMovies));
+            Console.WriteLine(" ");
+            Console.WriteLine("Nomor 4 is done.");
+            Console.WriteLine(" ");
 
             //Nomor 5
             var scrapes = new Kompas.BlogScrapper();
             await scrapes.StartAsync();
             Console.WriteLine("Nomor 5 is done.");
             Console.WriteLine("");
-            //scrape.Start();
+
+            //Nomor 6
+
 
         }
 
