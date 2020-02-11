@@ -13,33 +13,29 @@ namespace HTTPChallenge
 
         public static async Task<string> Get(string link)
         {
-            
+
             var gets = await client.GetStringAsync(link);
             return gets;
         }
 
-        public static async Task<string> Delete(string link)
+        public static async void Delete(string link)
         {
-            var deletes = await client.DeleteAsync(link);
-            return deletes;
+            await client.DeleteAsync(link);
         }
 
-        public static async Task<string> Post(string link)
+        public static async void Post(string link, HttpContent data)
         {
-            var posts = await client.PostAsync(link);
-            return posts;
+            await client.PostAsync(link, data);
         }
 
-        public static async Task<string> Put(string link)
+        public static async void Put(string link, HttpContent data)
         {
-            var puts = await client.PutAsync(link);
-            return puts;
+            await client.PutAsync(link,data);
         }
 
-        public static async Task<string> Patch(string link)
+        public static async void Patch(string link, HttpContent data)
         {
-            var patchs = await client.PatchAsync(link);
-            return patchs;
+            await client.PatchAsync(link,data);
         }
     }
 

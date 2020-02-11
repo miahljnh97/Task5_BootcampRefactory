@@ -10,8 +10,7 @@ namespace HTTPChallenge
     {
         public static async Task<List<User>> GetUser()
         {
-            var client = new HttpClient();
-            var result = await client.GetStringAsync("https://jsonplaceholder.typicode.com/users");
+            var result = await Fetcher.Get("https://jsonplaceholder.typicode.com/users");
             var user = JsonConvert.DeserializeObject<List<User>>(result);
             return user;
         }

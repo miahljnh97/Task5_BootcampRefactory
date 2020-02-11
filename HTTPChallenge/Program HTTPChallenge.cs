@@ -13,8 +13,11 @@ namespace HTTPChallenge
         static async Task Main(string[] args)
         {
             //Nomor 1
+            Console.WriteLine("Fetcher Get from httpbin.org/get : ");
             var getJsonResponse = await Fetcher.Get("https://httpbin.org/get");
             Console.WriteLine(getJsonResponse);
+            Console.WriteLine("Nomor 1 is done.");
+            Console.WriteLine(" ");
 
             //Nomor 2
             var result = await Employees.employeesData();
@@ -90,10 +93,9 @@ namespace HTTPChallenge
 
             //Nomor 3
 
-            var client = new HttpClient();
-            var post = await client.GetStringAsync("https://jsonplaceholder.typicode.com/posts");
+            var post = await Fetcher.Get("https://jsonplaceholder.typicode.com/posts");
             var posts = JsonConvert.DeserializeObject<List<Soal3.Nomor3>>(post);
-            var user = await client.GetStringAsync("https://jsonplaceholder.typicode.com/users");
+            var user = await Fetcher.Get("https://jsonplaceholder.typicode.com/users");
             var users = JsonConvert.DeserializeObject<List<Soal3.User>>(user);
             var hasil = new List<Soal3.Nomor3>();
             foreach (var k in posts)
@@ -200,6 +202,10 @@ namespace HTTPChallenge
             Console.WriteLine("");
 
             //Nomor 6
+            var scrape = new CGVclass.CGV();
+            await scrape.StartAsync();
+            Console.WriteLine("Nomor 6 is done.");
+            Console.WriteLine("");
 
 
         }

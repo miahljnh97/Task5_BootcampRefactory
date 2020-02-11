@@ -11,32 +11,28 @@ namespace HTTPChallenge
     {
         public static async Task<Nomor4> Indonesia()
         {
-            var client = new HttpClient();
-            var json1 = await client.GetStringAsync("https://api.themoviedb.org/3/discover/movie?api_key=62f751fec695f5d8c228bf931aada3dd&language=en-US&sort_by=popularity.asc&include_adult=false&include_video=false&page=1&with_original_language=id");
+            var json1 = await Fetcher.Get("https://api.themoviedb.org/3/discover/movie?api_key=62f751fec695f5d8c228bf931aada3dd&language=en-US&sort_by=popularity.asc&include_adult=false&include_video=false&page=1&with_original_language=id");
             var data1 = JsonConvert.DeserializeObject<Nomor4>(json1);
             return data1;
         }
 
         public static async Task<Nomor4> Keanu()
         {
-            var client = new HttpClient();
-            var json2 = await client.GetStringAsync("https://api.themoviedb.org/3/discover/movie?api_key=62f751fec695f5d8c228bf931aada3dd&language=en-US&sort_by=popularity.asc&include_adult=false&include_video=false&page=1&with_people=6384");
+            var json2 = await Fetcher.Get("https://api.themoviedb.org/3/discover/movie?api_key=62f751fec695f5d8c228bf931aada3dd&language=en-US&sort_by=popularity.asc&include_adult=false&include_video=false&page=1&with_people=6384");
             var data2 = JsonConvert.DeserializeObject<Nomor4>(json2);
             return data2;
         }
 
         public static async Task<Nomor4> DowneyHolland()
         {
-            var client = new HttpClient();
-            var json3 = await client.GetStringAsync("https://api.themoviedb.org/3/discover/movie?api_key=62f751fec695f5d8c228bf931aada3dd&language=en-US&sort_by=popularity.asc&include_adult=false&include_video=false&page=1&with_people=3223%2C1136406");
+            var json3 = await Fetcher.Get("https://api.themoviedb.org/3/discover/movie?api_key=62f751fec695f5d8c228bf931aada3dd&language=en-US&sort_by=popularity.asc&include_adult=false&include_video=false&page=1&with_people=3223%2C1136406");
             var data3 = JsonConvert.DeserializeObject<Nomor4>(json3);
             return data3;
         }
 
         public static async Task<Nomor4> popularMovies()
         {
-            var client = new HttpClient();
-            var json4 = await client.GetStringAsync("https://api.themoviedb.org/3/discover/movie?api_key=62f751fec695f5d8c228bf931aada3dd&language=en-US&sort_by=popularity.asc&include_adult=false&include_video=false&page=1&primary_release_year=2016&vote_average.gte=7.5");
+            var json4 = await Fetcher.Get("https://api.themoviedb.org/3/discover/movie?api_key=62f751fec695f5d8c228bf931aada3dd&language=en-US&sort_by=popularity.asc&include_adult=false&include_video=false&page=1&primary_release_year=2016&vote_average.gte=7.5");
             var data4 = JsonConvert.DeserializeObject<Nomor4>(json4);
             return data4;
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using IronWebScraper;
 
 namespace HTTPChallenge
@@ -27,7 +28,7 @@ namespace HTTPChallenge
                 Console.WriteLine(response.Css("div.movie-info-title").First().InnerText.Replace("\t", ""));
                 foreach (var result in response.Css("div.movie-add-info > ul"))
                 {
-                    Console.WriteLine(X.InnerText.Replace("\t", ""));
+                    Console.WriteLine(result.InnerText.Replace("\t", "")) ;
                 }
                 Console.WriteLine(response.Css("div.movie-synopsis").First().InnerText.Replace("\t", ""));
             }

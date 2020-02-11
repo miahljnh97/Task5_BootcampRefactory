@@ -10,8 +10,7 @@ namespace HTTPChallenge
     {
         public static async Task<List<Employees1>> employeesData()
         {
-            var client = new HttpClient();
-            var json2 = await client.GetStringAsync("https://mul14.github.io/data/employees.json");
+            var json2 = await Fetcher.Get("https://mul14.github.io/data/employees.json");
             var data2 = JsonConvert.DeserializeObject<List<Employees1>>(json2);
             return data2;
         }
