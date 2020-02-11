@@ -20,7 +20,7 @@ namespace HTTPChallenge
 
             //public override void Parse(Response response)
             //{
-            //    foreach (var result in response.Css("div.headline.ga--headline.clearfix"))
+            //    foreach (var result in response.Css("div.headline.ga--headline.clearfix > h2"))
             //    {
             //        string title = result.TextContentClean;
             //        Console.WriteLine(title);
@@ -33,6 +33,10 @@ namespace HTTPChallenge
             {
                 foreach (var result in response.Css("div.headline.ga--headline.clearfix"))
                 {
+                    string t = result.TextContentClean;
+                    Console.WriteLine(t);
+                    Console.WriteLine("");
+
                     string title = result.Css("a[href]")[0].Attributes["href"];
                     Console.WriteLine(title);
                     Console.WriteLine("");
@@ -42,7 +46,7 @@ namespace HTTPChallenge
                     string title2 = result.Css("a[href]")[2].Attributes["href"];
                     Console.WriteLine(title2);
                     Console.WriteLine("");
-                    string title3 = result.Css("a[href]")[0].Attributes["href"];
+                    string title3 = result.Css("a[href]")[3].Attributes["href"];
                     Console.WriteLine(title3);
                     Console.WriteLine("");
 
