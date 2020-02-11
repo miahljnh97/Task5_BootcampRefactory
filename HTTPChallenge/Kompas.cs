@@ -18,37 +18,20 @@ namespace HTTPChallenge
                 Request("https://kompas.com", Parse);
             }
 
-            //public override void Parse(Response response)
-            //{
-            //    foreach (var result in response.Css("div.headline.ga--headline.clearfix > h2"))
-            //    {
-            //        string title = result.TextContentClean;
-            //        Console.WriteLine(title);
-            //        Console.WriteLine("");
-            //    }
-            //}
-
 
             public override void Parse(Response response)
             {
                 foreach (var result in response.Css("div.headline.ga--headline.clearfix"))
                 {
-                    string t = result.TextContentClean;
+                    var t = result.InnerText;
                     Console.WriteLine(t);
                     Console.WriteLine("");
 
-                    string title = result.Css("a[href]")[0].Attributes["href"];
-                    Console.WriteLine(title);
-                    Console.WriteLine("");
-                    string title1 = result.Css("a[href]")[1].Attributes["href"];
-                    Console.WriteLine(title1);
-                    Console.WriteLine("");
-                    string title2 = result.Css("a[href]")[2].Attributes["href"];
-                    Console.WriteLine(title2);
-                    Console.WriteLine("");
-                    string title3 = result.Css("a[href]")[3].Attributes["href"];
-                    Console.WriteLine(title3);
-                    Console.WriteLine("");
+                    for (int i = 0; i < result.Css("a[href]").Length; i++)
+                    {
+                        Console.WriteLine(result.Css("a[href]")[i].Attributes["href"]);
+                        Console.WriteLine("");
+                    }
 
                 }
             }
